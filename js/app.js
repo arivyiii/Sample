@@ -9,14 +9,37 @@ function login(userInfo = {}) {
 
     setCookie(emailCookie, email);
     setCookie(departmentCookie, department);
-
     hideLoginModal();
 
     // this sure would be a great place to handle any identification stuff
+    /**pendo.initialize({
+        visitor: {
+            id:              email,   // Required if user is logged in
+            email:           email
+            // email:        // Optional
+            // role:         // Optional
+
+            // You can add any additional visitor level key-values here,
+            // as long as it's not one of the above reserved names.
+        },
+
+        account: {
+            id:           department, // Highly recommended
+            name:         department
+            // name:         // Optional
+            // planLevel:    // Optional
+            // planPrice:    // Optional
+            // creationDate: // Optional
+
+            // You can add any additional account level key-values here,
+            // as long as it's not one of the above reserved names.
+        }
+    });**/
+
 }
 
-const emailCookie = "pendoOnboarding__Email";
-const departmentCookie = "pendoOnboarding__Department";
+const emailCookie = "VISITOR-UNIQUE-ID";
+const departmentCookie = "ACCOUNT-UNIQUE-ID";
 
 let email = getCookie(emailCookie);
 let department = getCookie(departmentCookie);
@@ -78,6 +101,7 @@ function getCookie(name) {
     }
     return null;
 }
+
 function deleteCookie(name) {
     document.cookie = name + "=; Max-Age=-99999999;";
 }
@@ -226,7 +250,7 @@ function deactivatePank() {
     $("#the-button").removeEventListener("click", celebrate);
 }
 function celebrate() {
-    document.location.href = "celebrate.html";
+    document.location.href = "../celebrate.html";
 }
 
 // Helper function for dom querying
