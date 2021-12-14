@@ -12,10 +12,15 @@ function login(userInfo = {}) {
     hideLoginModal();
 
     // this sure would be a great place to handle any identification stuff
-    /**pendo.initialize({
+    pendo.initialize({
         visitor: {
-            id:              email,   // Required if user is logged in
-            email:           email
+          id: user_id,
+          firstName: first_name,
+          lastName: last_name,
+          email: user_email,
+          position: user_position,
+          country: user_country,
+          jerseyNumber: user_number
             // email:        // Optional
             // role:         // Optional
 
@@ -24,8 +29,10 @@ function login(userInfo = {}) {
         },
 
         account: {
-            id:           department, // Highly recommended
-            name:         department
+            id:           account_id, // Highly recommended
+            teamName:     account_name,
+            league:       account_league,
+            country:      account_country
             // name:         // Optional
             // planLevel:    // Optional
             // planPrice:    // Optional
@@ -34,7 +41,7 @@ function login(userInfo = {}) {
             // You can add any additional account level key-values here,
             // as long as it's not one of the above reserved names.
         }
-    });**/
+    });
 
 }
 
